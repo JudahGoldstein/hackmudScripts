@@ -1,20 +1,19 @@
 function(context, args){//s:#s.t1npc.loc
 	var LOCKS = ["EZ_21", "EZ_35", "EZ_40", "c001", "c002", "c003", "l0cket", "DATA_CHECK"]
-	var COLORS = ["green", "lime", "yellow", "orange", "red", "purple", "blue", "cyan"]
-	var EZ =  ["open", "release", "unlock"]
-	var PRIMES = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
-	var KEYS = ["6hh8xw", "cmppiq", "sa23uw", "tvfkyq", "uphlaw", "vc2c7q", "xwz7ja"]
-	var Q = ["pattern ","device","more","humor","angie's","mallory's","che ","will","faythe","hack","pet","safety","service","fact","capture","friend","th3","provides i","gc","CAFE"]
-	var A = ["fran_lee","robovac","sentience","sans_comedy","angels","minions","sisters","petra","fountain","helpdesk","bunnybat","get_level","weathernet","eve","resource","bo","heard","teach","outta_juice","poetry"]
-	var loc = args.s
+	, COLORS = ["green", "lime", "yellow", "orange", "red", "purple", "blue", "cyan"]
+	, EZ =  ["open", "release", "unlock"]
+	, PRIMES = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+	, KEYS = ["6hh8xw", "cmppiq", "sa23uw", "tvfkyq", "uphlaw", "vc2c7q", "xwz7ja"]
+	, Q = ["pattern ","device","more","humor","angie's","mallory's","che ","will","faythe","hack","pet","safety","service","fact","capture","friend","th3","provides i","gc","CAFE"]
+	, A = ["fran_lee","robovac","sentience","sans_comedy","angels","minions","sisters","petra","fountain","helpdesk","bunnybat","get_level","weathernet","eve","resource","bo","heard","teach","outta_juice","poetry"]
+	, loc = args.s
 	let open_cnt = function(s) { 
 		return (s.match(/LOCK_UNLOCKED/g) || []).length
 	}
 	var locks = {}
-	var hint = loc.call(locks)
-	var i_err = hint.indexOf("LOCK_ERROR")
-	while(true)
-	{
+	, hint = loc.call(locks)
+	, i_err = hint.indexOf("LOCK_ERROR")
+	while(true) {
 		if(i_err == -1)
 			return [locks, hint]
 
@@ -26,8 +25,7 @@ function(context, args){//s:#s.t1npc.loc
 				break;
 			}
 		var breached_locks = open_cnt(hint)
-		for(var i = 0; true; i++)
-		{
+		for(var i = 0; true; i++) {
 			if(lk == "c001")
 			{
 				locks.c001 = COLORS[i%COLORS.length]
@@ -78,11 +76,13 @@ function(context, args){//s:#s.t1npc.loc
 			hint = loc.call(locks);
 			i_err = hint.indexOf("LOCK_ERROR")
 			if(open_cnt(hint) > breached_locks || i_err == -1)
+			{
 				break;
-
+			}
 			function pullAns(q){
 				for(var i = 0; i < Q.length; i++){
-					if (q.includes(Q[i])){
+					if (q.includes(Q[i]))
+					{
 						ans += A[i]
 					}
 				}	
