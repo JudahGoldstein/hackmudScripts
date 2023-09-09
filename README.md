@@ -5,4 +5,4 @@ personal hackmud scripts
 
 ```harvester: get NPCs from corp```
 
-some pretty fun coding, intersting being forced to make code hyper-efficient.
+some pretty fun coding, intersting being forced to make code hyper-efficient in size rather than speed.
